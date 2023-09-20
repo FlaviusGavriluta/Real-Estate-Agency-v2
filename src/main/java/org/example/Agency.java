@@ -10,8 +10,8 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class Agency {
-    List<User> users;
-    List<Ad> ads;
+    private List<User> users;
+    private List<Ad> ads;
 
     public Agency() {
         this.users = new ArrayList<>();
@@ -24,18 +24,6 @@ public class Agency {
 
     public void addAd(Ad ad) {
         ads.add(ad);
-    }
-
-    public List<Ad> listAdsByDistrict(District district) {
-        return ads.stream().filter(ad -> ad.getDistrict().equals(district)).collect(Collectors.toList());
-    }
-
-    public List<Ad> listAdsByPrice(int price) {
-        return ads.stream().filter(ad -> ad.getPrice() >= price).collect(Collectors.toList());
-    }
-
-    public List<Ad> listAdsByFurnished(boolean isFurnished) {
-        return ads.stream().filter(ad -> ad.isFurnished() == isFurnished).collect(Collectors.toList());
     }
 
     public List<Ad> filterAds(Predicate<Ad> criteria) {

@@ -57,18 +57,11 @@ public class Main {
         agency.addUser(agent1);
         agency.addUser(agent2);
 
-//        agency.listAdsByDistrict(District.XI).forEach(System.out::println);
-
-//        agency.listAdsByPrice(140000).forEach(System.out::println);
-
-//        agency.listAdsByFurnished(true).forEach(System.out::println);
-
-//        agency.ads.forEach(System.out::println);
-
         Predicate<Ad> filterByDistrict = ad -> ad.getDistrict().equals(District.V);
         Predicate<Ad> filterByPrice = ad -> ad.getPrice() < 170000;
         Predicate<Ad> filterByFurnished = Ad::isFurnished;
 
-        agency.filterAds(filterByDistrict.and(filterByPrice.and(filterByFurnished))).forEach(System.out::println);
+        agency.filterAds(filterByDistrict.and(filterByPrice.and(filterByFurnished)))
+                .forEach(System.out::println);
     }
 }

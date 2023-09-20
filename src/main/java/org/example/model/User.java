@@ -9,6 +9,11 @@ public class User {
         this.contact = contact;
     }
 
+    public void sendDm(User user, String message) {
+        System.out.println(this.name + " sent a direct message to: " + user.name);
+
+    }
+
     public String getName() {
         return name;
     }
@@ -23,11 +28,6 @@ public class User {
 
     public void setContact(String contact) {
         this.contact = contact;
-    }
-
-    public void sendDm(User user, String message) {
-        System.out.println(this.name + " sent a direct message to: " + user.name);
-
     }
 
     @Override
