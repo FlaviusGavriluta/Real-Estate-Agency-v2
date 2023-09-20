@@ -7,6 +7,7 @@ import org.example.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class Main {
     public static void main(String[] args) {
@@ -63,5 +64,11 @@ public class Main {
 //        agency.listAdsByFurnished(true).forEach(System.out::println);
 
 //        agency.ads.forEach(System.out::println);
+
+        Predicate<Ad> filterByDistrict = ad -> ad.getDistrict().equals(District.V);
+        Predicate<Ad> filterByPrice = ad -> ad.getPrice() < 170000;
+        Predicate<Ad> filterByFurnished = Ad::isFurnished;
+
+        agency.filterAds(filterByDistrict.and(filterByPrice.and(filterByFurnished))).forEach(System.out::println);
     }
 }

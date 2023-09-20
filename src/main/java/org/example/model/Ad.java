@@ -3,7 +3,7 @@ package org.example.model;
 import org.example.enums.District;
 
 public class Ad {
-    private int id;
+    private final int id;
     private String address;
     private District district;
     private Agent agent;

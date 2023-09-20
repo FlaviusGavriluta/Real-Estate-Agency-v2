@@ -6,6 +6,7 @@ import org.example.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class Agency {
@@ -35,6 +36,12 @@ public class Agency {
 
     public List<Ad> listAdsByFurnished(boolean isFurnished) {
         return ads.stream().filter(ad -> ad.isFurnished() == isFurnished).collect(Collectors.toList());
+    }
+
+    public List<Ad> filterAds(Predicate<Ad> criteria) {
+        return ads.stream()
+                .filter(criteria)
+                .collect(Collectors.toList());
     }
 
     @Override
